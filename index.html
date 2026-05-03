@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+  color: white;
+  overflow-x: hidden;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #ff4d6d;
+}
+
+.card {
+  max-width: 700px;
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s;
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: none;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff1f4b;
+  transform: scale(1.05);
+}
+
+.final-text {
+  font-size: 2rem;
+  color: #ff4d6d;
+  margin-top: 40px;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: 1.5s;
+}
+
+.fade-in.show {
+  opacity: 1;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+/* typing cursor */
+.cursor {
+  border-right: 2px solid #ff4d6d;
+  padding-right: 5px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC (replace file) -->
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<section>
+  <h1>Happy Birthday, <span class="highlight">Aditi</span> 🎂</h1>
+  <p>From your first friend in college… who forgot your name the next day 💀</p>
+  <div class="scroll-down">scroll ↓</div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>Our Story</h2>
+    <p>
+      I met you on the first day of college… documentation day.  
+      You were my first friend there—even if I messed up your name.  
+      <br><br>
+      Then we got close. Really close.  
+      Then we stopped talking… and yeah, that part sucked.  
+      <br><br>
+      But somehow, we found our way back.  
+      And this time… it felt different. Stronger.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>The Truth</h2>
+    <p>
+      I liked you even before we really started talking.  
+      And after everything… that hasn’t changed.  
+      <br><br>
+      If anything—it just became more real.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>That Month</h2>
+    <p>
+      When we met every day… talked every day…  
+      that’s when it stopped being just a crush.  
+      <br><br>
+      And when we both said it out loud…  
+      yeah, that meant everything.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>Now</h2>
+    <p>
+      You’re in Chandigarh, I’m in Delhi.  
+      Not ideal… but somehow, you still feel close.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>What I Want to Say</h2>
+    <p>
+      I don’t want to mess up what we have.  
+      But I don’t want to pretend this is just friendship either.  
+      <br><br>
+      I like you. I have for a while.  
+      And I don’t want to leave this as a “what if.”  
+      <br><br>
+      If you feel it too… I’d love to make this official—with you.  
+      <br><br>
+      No pressure. Just something real.
+    </p>
+
+    <button onclick="revealFinal()">Tap here ❤️</button>
+  </div>
+
+  <div id="final" class="fade-in">
+    <h2 id="typed" class="final-text"></h2>
+  </div>
+</section>
+
+<script>
+// reveal animation
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      card.classList.add('show');
+    }
+  });
+});
+
+// typing effect
+const text = "I love you, Aditi Vikram Singh… to the moon and back ❤️";
+let i = 0;
+
+function revealFinal() {
+  document.getElementById("final").classList.add("show");
+  typeWriter();
+}
+
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("typed").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 50);
+  }
+}
+</script>
+
+</body>
+</html>
