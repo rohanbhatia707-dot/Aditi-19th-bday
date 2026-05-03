@@ -17,7 +17,6 @@
 body {
   background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
   color: white;
-  overflow-x: hidden;
 }
 
 section {
@@ -30,13 +29,7 @@ section {
   text-align: center;
 }
 
-h1, h2 {
-  margin-bottom: 20px;
-}
-
-.highlight {
-  color: #ff4d6d;
-}
+.highlight { color: #ff4d6d; }
 
 .card {
   max-width: 700px;
@@ -64,7 +57,6 @@ button {
   color: white;
   cursor: pointer;
   font-size: 16px;
-  transition: 0.3s;
 }
 
 button:hover {
@@ -78,26 +70,11 @@ button:hover {
   margin-top: 40px;
 }
 
-.fade-in {
-  opacity: 0;
-  transition: 1.5s;
-}
+.fade-in { opacity: 0; transition: 1.5s; }
+.fade-in.show { opacity: 1; }
 
-.fade-in.show {
-  opacity: 1;
-}
-
-.scroll-down {
-  position: absolute;
-  bottom: 20px;
-  font-size: 14px;
-  opacity: 0.6;
-}
-
-/* typing cursor */
 .cursor {
   border-right: 2px solid #ff4d6d;
-  padding-right: 5px;
   animation: blink 1s infinite;
 }
 
@@ -109,7 +86,6 @@ button:hover {
 
 <body>
 
-<!-- MUSIC (replace file) -->
 <audio autoplay loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -117,7 +93,6 @@ button:hover {
 <section>
   <h1>Happy Birthday, <span class="highlight">Aditi</span> 🎂</h1>
   <p>From your first friend in college… who forgot your name the next day 💀</p>
-  <div class="scroll-down">scroll ↓</div>
 </section>
 
 <section>
@@ -185,8 +160,32 @@ button:hover {
       <br><br>
       No pressure. Just something real.
     </p>
+  </div>
+</section>
+
+<!-- 🎂 Birthday + Proposal -->
+<section>
+  <div class="card">
+    <h2>One More Thing… 🎂❤️</h2>
+    <p>
+      It’s your birthday… so I had to make it a little special.  
+      <br><br>
+      We both know what this is… we’ve said it, we’ve felt it.  
+      It’s never really been “just friends,” has it?
+      <br><br>
+      So I’m not going to overcomplicate this.
+      <br><br>
+      <b>Will you be my girlfriend?</b>
+      <br><br>
+      And yeah… I’d love to see your reaction when you answer 😏  
+      (only if you want to)
+    </p>
 
     <button onclick="revealFinal()">Tap here ❤️</button>
+
+    <p style="margin-top:15px; opacity:0.7;">
+      (I’ll be waiting for your answer… however you choose to give it)
+    </p>
   </div>
 
   <div id="final" class="fade-in">
@@ -195,7 +194,6 @@ button:hover {
 </section>
 
 <script>
-// reveal animation
 const cards = document.querySelectorAll('.card');
 
 window.addEventListener('scroll', () => {
@@ -207,7 +205,6 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// typing effect
 const text = "I love you, Aditi Vikram Singh… to the moon and back ❤️";
 let i = 0;
 
